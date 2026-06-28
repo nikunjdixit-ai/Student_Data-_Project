@@ -16,3 +16,10 @@ print("\nUpdated Dataset")
 print(df.head())
 
 topper, failed, attendance, study = filter_data(df)
+
+topper.to_csv("output/topper.csv", index=False)
+failed.to_csv("output/failed_students.csv", index=False)
+attendance.to_csv("output/attendance_below_75.csv", index=False)
+study.to_csv("output/study_hours_above_8.csv", index=False)
+
+print("\nFiltered Files Saved Successfully!")
