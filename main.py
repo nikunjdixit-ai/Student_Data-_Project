@@ -3,6 +3,7 @@ from agents.inspector import inspect_data
 from agents.cleaner import clean_data
 from agents.transformer import transform_data
 from agents.filter import filter_data
+from agents.analysis import analyze_data   # Module 6
 
 df = load_data()
 
@@ -23,3 +24,5 @@ attendance.to_csv("output/attendance_below_75.csv", index=False)
 study.to_csv("output/study_hours_above_8.csv", index=False)
 
 print("\nFiltered Files Saved Successfully!")
+
+analyze_data(df)
