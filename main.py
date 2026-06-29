@@ -3,7 +3,8 @@ from agents.inspector import inspect_data
 from agents.cleaner import clean_data
 from agents.transformer import transform_data
 from agents.filter import filter_data
-from agents.analysis import analyze_data   # Module 6
+from agents.analysis import analyze_data    # Module 6
+from agents.sorting import sort_by_marks, sort_by_attendance, sort_by_study_hours  # Module 7
 
 df = load_data()
 
@@ -26,3 +27,19 @@ study.to_csv("output/study_hours_above_8.csv", index=False)
 print("\nFiltered Files Saved Successfully!")
 
 analyze_data(df)
+
+print("\n📊 Students sorted by Marks")
+sorted_marks = sort_by_marks(df)
+
+print("\n📊 Students sorted by Attendance")
+sorted_attendance = sort_by_attendance(df)
+
+print("\n📊 Students sorted by Study Hours")
+sorted_hours = sort_by_study_hours(df)
+
+sorted_marks.to_csv("output/sorted_by_marks.csv", index=False)
+sorted_attendance.to_csv("output/sorted_by_attendance.csv", index=False)
+sorted_hours.to_csv("output/sorted_by_study_hours.csv", index=False)
+
+print("\nSorting Files Saved Successfully!")
+
