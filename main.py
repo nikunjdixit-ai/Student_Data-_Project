@@ -4,7 +4,8 @@ from agents.cleaner import clean_data
 from agents.transformer import transform_data
 from agents.filter import filter_data
 from agents.analysis import analyze_data    # Module 6
-from agents.sorting import sort_by_marks, sort_by_attendance, sort_by_study_hours  # Module 7
+from agents.sorting import sort_by_marks, sort_by_attendance, sort_by_study_hours  
+from agents.grouping import grouping_analysis
 
 df = load_data()
 
@@ -43,3 +44,8 @@ sorted_hours.to_csv("output/sorted_by_study_hours.csv", index=False)
 
 print("\nSorting Files Saved Successfully!")
 
+group_results = grouping_analysis(df)
+group_results["Average Marks by Grade"].to_csv("output/avg_marks_by_grade.csv")
+group_results["Count Students by Grade"].to_csv("output/count_students_by_grade.csv")
+group_results["Average Attendance by Grade"].to_csv("output/avg_attendance_by_grade.csv")
+print("\nGrouping Files Saved Successfully!")
