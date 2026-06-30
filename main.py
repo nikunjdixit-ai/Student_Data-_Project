@@ -6,6 +6,7 @@ from agents.filter import filter_data
 from agents.analysis import analyze_data    # Module 6
 from agents.sorting import sort_by_marks, sort_by_attendance, sort_by_study_hours  
 from agents.grouping import grouping_analysis
+from agents.statistics import statistical_analysis
 
 df = load_data()
 
@@ -49,3 +50,5 @@ group_results["Average Marks by Grade"].to_csv("output/avg_marks_by_grade.csv")
 group_results["Count Students by Grade"].to_csv("output/count_students_by_grade.csv")
 group_results["Average Attendance by Grade"].to_csv("output/avg_attendance_by_grade.csv")
 print("\nGrouping Files Saved Successfully!")
+
+stats_results = statistical_analysis(df)
