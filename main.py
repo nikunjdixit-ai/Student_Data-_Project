@@ -3,7 +3,7 @@ from agents.inspector import inspect_data
 from agents.cleaner import clean_data
 from agents.transformer import transform_data
 from agents.filter import filter_data
-from agents.analysis import analyze_data    # Module 6
+from agents.analysis import analyze_data  
 from agents.sorting import sort_by_marks, sort_by_attendance, sort_by_study_hours  
 from agents.grouping import grouping_analysis
 from agents.statistics import statistical_analysis
@@ -56,3 +56,21 @@ stats_results = statistical_analysis(df)
 
 final_report = generate_report(df)
 print("\nFinal Report:\n", final_report)
+
+import pandas as pd
+
+report_df = pd.DataFrame([final_report])
+
+report_df.to_excel("output/report.xlsx", index=False)
+
+print("\n✅ Report also saved as Excel!")
+import matplotlib.pyplot as plt
+
+print(df.columns)
+
+plt.figure()
+df['Grade'].value_counts().plot(kind='bar')
+plt.title("Grade Distribution")
+plt.show()   # shows graph window
+
+
